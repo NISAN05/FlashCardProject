@@ -19,7 +19,33 @@ public class MainActivity extends AppCompatActivity {
         ecouteReponse1();
         ecouteReponse2();
         ecouteReponse3();
+        ecouteQuestion();
+        ecouteReponse();
 
+    }
+
+    private void ecouteQuestion(){
+        TextView Question=findViewById(R.id.IdQuestion);
+        TextView Reponse=findViewById(R.id.IdReponse);
+        Question.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Question.setVisibility(View.GONE);
+                Reponse.setVisibility(View.VISIBLE);
+
+            }
+        });
+    }
+    private void ecouteReponse(){
+        TextView Question=findViewById(R.id.IdQuestion);
+        TextView Reponse=findViewById(R.id.IdReponse);
+        Reponse.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Reponse.setVisibility(View.GONE);
+                Question.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     /**
@@ -41,10 +67,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private void ecouteReponse2(){
         TextView Reponse2=findViewById(R.id.IdReponse2);
+        TextView Question=findViewById(R.id.IdQuestion);
+        TextView Reponse=findViewById(R.id.IdReponse);
         Reponse2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((TextView)findViewById(R.id.IdQuestion)).setText("Bonne reponse, Felicitations!");
+                Question.setVisibility(View.GONE);
+                Reponse.setVisibility(View.VISIBLE);
                 Reponse2.setBackgroundColor(Color.GREEN);
             }
         });
