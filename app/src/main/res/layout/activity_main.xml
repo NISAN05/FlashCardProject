@@ -6,119 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/IdQuestion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="200dp"
+        android:background="@drawable/rect"
+        android:layout_margin="12dp"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text="Quelle est la capitale du bresil ?"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/IdReponse"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:text="Brasilia"
+        android:layout_margin="12dp"
+        android:textAllCaps="true"
+        android:textSize="34sp"
+        android:textColor="@color/black"
+        android:background="@drawable/rect"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-            <TextView
-                android:id="@+id/IdQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#3F51B5"
-                android:gravity="center"
-                android:text="Quel est la capitale du bresil ?"
-                android:textAllCaps="true"
-                android:textSize="34sp"
-                android:visibility="visible" />
+    <ImageView
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_add"
+        android:background="@drawable/style_texview"
+        android:layout_marginTop="460dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
-            <TextView
-                android:id="@+id/IdReponse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#3F51B5"
-                android:gravity="center"
-                android:text="brasilia"
-                android:textAllCaps="true"
-                android:textSize="34sp"
-                android:visibility="gone" />
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/visible_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_visible"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_edit"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
-            <TextView
-                android:id="@+id/IdReponse1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#03A9F4"
-                android:gravity="center"
-                android:hapticFeedbackEnabled="false"
-                android:text="Salvador"
-                android:textSize="20sp"
-                android:visibility="invisible" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/IdReponse1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brasilia"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:background="@drawable/rect"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/IdReponse2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IdQuestion" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/IdReponse2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rio de Janeiro"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:background="@drawable/rect"
+        app:layout_constraintBottom_toBottomOf="@id/IdReponse3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/IdReponse1" />
 
-            <TextView
-                android:id="@+id/IdReponse2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="#03A9F4"
-                android:gravity="center"
-                android:text="Brasilia"
-                android:textSize="20sp"
-                android:visibility="invisible" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/IdReponse3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvador"
+        android:textSize="30dp"
+        android:background="@drawable/rect"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/IdReponse2" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/IdReponse3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="#03A9F4"
-                android:text="Rio de Janeiro"
-                android:textSize="20sp"
-                android:visibility="invisible" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/IdVueButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/vue" />
-        </LinearLayout>
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

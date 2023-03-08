@@ -12,6 +12,9 @@
         android:theme="@style/Theme.FlashCardProject"
         tools:targetApi="31">
         <activity
+            android:name=".Add_cardActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
