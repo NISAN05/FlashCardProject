@@ -4,8 +4,7 @@
 l'application te presente une carte question, lorsque tu cliques sur la carte la reponse apparrait.
 tu as aussi la possibilite de faire apparraitre des question a choix multiple en appuyant sur l'oeil en bas de l'ecran.
 ### App Walk-through
-<img src="![flashcard](https://user-images.githubusercontent.com/50859171/222263127-9cdac7a1-8445-4fd2-b4b8-debd43a5728a.gif)
-" width=200><br>
+![flashcard](https://user-images.githubusercontent.com/92595592/223848330-bf66a36d-d97d-4f54-ae4d-9f8bbcd1df50.gif)
  ## Requis
 - [x] creer un nouveau projet dans Android studio
 - [x] ajouter une vue pour la face avant du flashcard pour afficher la question
