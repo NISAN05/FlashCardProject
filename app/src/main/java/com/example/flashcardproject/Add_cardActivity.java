@@ -1,5 +1,7 @@
 package com.example.flashcardproject;
 
+import static com.example.flashcardproject.MainActivity.Cle1Flashcard;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,10 +15,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Add_cardActivity extends AppCompatActivity {
-    public static final String CleTextQuestion="FlashCardProject_Question";
-    public static final String CleTextReponse="FlashCardProject_Reponse";
-    public static final String CleTextReponse2="FlashCardProject_Reponse2";
-    public static final String CleTextReponse3="FlashCardProject_Reponse3";
+    private int id=-1;
+    private AccesBase accesBase=new AccesBase(this);
+    public static final String CleFlashcard="FlashCardProject_Flashcard";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +39,15 @@ public class Add_cardActivity extends AppCompatActivity {
         EditText Reponse3=findViewById(R.id.IdtextReponse3);
         CheckBox QCM=findViewById(R.id.Id_QCM);
         Bundle bundle=getIntent().getExtras();
+
         if (bundle!=null&&!bundle.isEmpty()){
-        String TextQuestion = bundle.getString(MainActivity.Cle1TextQuestion);
-        String TextReponse = bundle.getString(MainActivity.Cle1TextReponse);
-        String TextReponse2 = bundle.getString(MainActivity.Cle1TextReponse2);
-        String TextReponse3 = bundle.getString(MainActivity.Cle1TextReponse3);
-        QCM.setChecked(true);
-        Question.setText(TextQuestion);
-        Reponse.setText(TextReponse);
-        Reponse2.setText(TextReponse2);
-        Reponse3.setText(TextReponse3);
+            Flashcard flashcard=(Flashcard) bundle.getSerializable(Cle1Flashcard);
+            QCM.setChecked(true);
+            Question.setText(flashcard.getQuestion());
+            Reponse.setText(flashcard.getAnswer());
+            Reponse2.setText(flashcard.getWronganswer1());
+            Reponse3.setText(flashcard.getWronganswer2());
+            id=flashcard.getId();
         }
     }
 
@@ -80,24 +80,27 @@ public class Add_cardActivity extends AppCompatActivity {
         DownloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                charge_donnees();
+                enregistrementDansBd();
 
             }
         });
     }
 
-    /**
-     *
-     */
-    private void charge_donnees(){
+    private void transmission(Flashcard flashcard){
+        Intent intent = new Intent(Add_cardActivity.this, MainActivity.class);
+        Bundle bundle=new Bundle();
+        bundle.putSerializable(CleFlashcard,flashcard);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
+    private void enregistrementDansBd(){
+        Flashcard flashcard=null;
         CheckBox QCM=findViewById(R.id.Id_QCM);
         EditText Question=findViewById(R.id.IdtextQuestion);
         EditText Reponse=findViewById(R.id.IdtextReponse);
         EditText Reponse2=findViewById(R.id.IdtextReponse2);
         EditText Reponse3=findViewById(R.id.IdtextReponse3);
-        Intent intent=new Intent(Add_cardActivity.this,MainActivity.class);
-        Bundle bundle=new Bundle();
         String TextQuestion=Question.getText().toString();
         String TextReponse=Reponse.getText().toString();
         String TextReponse2=Reponse2.getText().toString();
@@ -106,14 +109,17 @@ public class Add_cardActivity extends AppCompatActivity {
         if (QCM.isChecked()){
 
             if ((TextQuestion!=null&&!TextQuestion.trim().isEmpty()) &&(TextReponse!=null&&!TextReponse.trim().isEmpty())
-            &&(TextReponse2!=null&&!TextReponse2.trim().isEmpty()) &&(TextReponse3!=null&&!TextReponse3.trim().isEmpty())){
-                bundle.putString(CleTextQuestion,TextQuestion);
-                bundle.putString(CleTextReponse,TextReponse);
-                bundle.putString(CleTextReponse2,TextReponse2);
-                bundle.putString(CleTextReponse3,TextReponse3);
-                intent.putExtras(bundle);
-                startActivity(intent);
-
+                    &&(TextReponse2!=null&&!TextReponse2.trim().isEmpty()) &&(TextReponse3!=null&&!TextReponse3.trim().isEmpty())){
+               flashcard=new Flashcard(TextQuestion,TextReponse,TextReponse2,TextReponse3,id);
+               if (id==-1) {
+                   accesBase.ajout(flashcard);
+                   Toast.makeText(Add_cardActivity.this, "Flashcard enregitrer", Toast.LENGTH_SHORT).show();
+               }else{
+                   accesBase.modifier(flashcard);
+                  // id=-1;
+                   Toast.makeText(Add_cardActivity.this, "Flashcard modifier", Toast.LENGTH_SHORT).show();
+               }
+               transmission(flashcard);
             }else {
                 Toast.makeText(this, "veuiller remplir tout les champs svp", Toast.LENGTH_SHORT).show();
             }
@@ -121,16 +127,21 @@ public class Add_cardActivity extends AppCompatActivity {
 
         }else {
             if ((TextQuestion!=null&&!TextQuestion.trim().isEmpty()) &&(TextReponse!=null&&!TextReponse.trim().isEmpty())){
-                bundle.putString(CleTextQuestion,TextQuestion);
-                bundle.putString(CleTextReponse,TextReponse);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                flashcard=new Flashcard(TextQuestion,TextReponse,"","",id);
+                if (id==-1) {
+                    accesBase.ajout(flashcard);
+                    Toast.makeText(Add_cardActivity.this, "Flashcard enregitrer", Toast.LENGTH_SHORT).show();
+                }else {
+                    accesBase.modifier(flashcard);
+                    //id=-1;
+                    Toast.makeText(Add_cardActivity.this, "Flashcard modifier", Toast.LENGTH_SHORT).show();
+                }
+                transmission(flashcard);
 
             }else {
                 Toast.makeText(this, "veuiller remplir tout les champs svp", Toast.LENGTH_SHORT).show();
             }
         }
-
 
 
     }
@@ -143,6 +154,7 @@ public class Add_cardActivity extends AppCompatActivity {
         CloseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                id=-1;
                 finish();
             }
         });
