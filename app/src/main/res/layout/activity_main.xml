@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/IdQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/rect"
+        android:layout_margin="12dp"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/IdReponse"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:text=""
+        android:layout_margin="12dp"
+        android:textAllCaps="true"
+        android:textSize="34sp"
+        android:textColor="@color/black"
+        android:background="@drawable/rect1"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_add"
+        android:background="@drawable/style_texview"
+        android:layout_marginTop="460dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/visible_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_visible"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_edit"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/arrowleft_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_arrowleft"
+        android:background="@drawable/style_texview"
+        android:layout_margin="12dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/IdQuestion"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <ImageView
+        android:id="@+id/arrowright_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_arrowright"
+        android:background="@drawable/style_texview"
+        android:layout_margin="12dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/IdQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <ImageView
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_delete"
+        android:background="@color/white"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/IdQuestion"
+        app:layout_constraintBottom_toTopOf="@id/add_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/IdReponse1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:background="@drawable/rect"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/IdReponse2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IdQuestion" />
+
+    <TextView
+        android:id="@+id/IdReponse2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:background="@drawable/rect"
+        app:layout_constraintBottom_toBottomOf="@id/IdReponse3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/IdReponse1" />
+
+    <TextView
+        android:id="@+id/IdReponse3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="30dp"
+        android:background="@drawable/rect"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/IdReponse2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
