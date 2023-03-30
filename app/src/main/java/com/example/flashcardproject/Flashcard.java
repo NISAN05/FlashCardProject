@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Flashcard implements Serializable {
     private int id;
+    
     private String question;
     private String answer;
     private String wronganswer1;
