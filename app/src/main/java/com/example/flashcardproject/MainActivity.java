@@ -213,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private  void afficheflashcard(){
-        overridePendingTransition(R.anim.left, R.anim.left);
         Random random=new Random();
         int nombrerandom=random.nextInt(3)+1;
         TextView Question=findViewById(R.id.IdQuestion);
@@ -225,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView arrowright=findViewById(R.id.arrowright_button);
         ImageView delete=findViewById(R.id.delete_button);
         ImageView ButtonVisible = findViewById(R.id.visible_button);
-
+        overridePendingTransition(R.anim.left, R.anim.left);
         if (flashcard.size()!=0) {
             delete.setVisibility(View.VISIBLE);
 
@@ -287,10 +286,8 @@ public class MainActivity extends AppCompatActivity {
             delete.setVisibility(View.INVISIBLE);
             ButtonVisible.setImageResource(R.drawable.icon_visible);
         }
-
-
-
     }
+
     /**
      *
      */
